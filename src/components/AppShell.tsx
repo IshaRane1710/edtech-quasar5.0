@@ -2,7 +2,8 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { type ReactNode, useState } from 'react';
 import {
   GraduationCap, LayoutDashboard, Upload, Gauge, Brain, Route,
-  Users, LogOut, Menu, X, Bell, ChevronDown,
+  Users, LogOut, Menu, X, Bell, ChevronDown, Building2, Calendar,
+  Briefcase, Award, BarChart3, Settings,
 } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 
@@ -15,10 +16,14 @@ const studentNav = [
 ];
 
 const adminNav = [
-  { to: '/admin', label: 'Overview', icon: LayoutDashboard },
-  { to: '/admin/students', label: 'Students', icon: Users },
-  { to: '/admin/analytics', label: 'Analytics', icon: Gauge },
-  { to: '/admin/interventions', label: 'Interventions', icon: Brain },
+  { to: '/admin', label: 'Dashboard Overview', icon: LayoutDashboard },
+  { to: '/admin/students', label: 'Student Management', icon: Users },
+  { to: '/admin/companies', label: 'Company Management', icon: Building2 },
+  { to: '/admin/drives', label: 'Placement Drives', icon: Briefcase },
+  { to: '/admin/calendar', label: 'Calendar & Scheduling', icon: Calendar },
+  { to: '/admin/offers', label: 'Offers & Results', icon: Award },
+  { to: '/admin/reports', label: 'Reports & Analytics', icon: BarChart3 },
+  { to: '/admin/settings', label: 'Settings & Access', icon: Settings },
 ];
 
 export function AppShell({ children }: { children: ReactNode }) {
@@ -47,7 +52,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           </div>
           <span className="text-lg font-bold tracking-tight text-ink-900">SkillForge</span>
         </div>
-        <nav className="flex-1 space-y-1 px-3 py-4">
+        <nav className="flex-1 space-y-1 px-3 py-4 overflow-y-auto scrollbar-hide">
           {nav.map((item) => {
             const active = isActive(item.to);
             return (
@@ -88,7 +93,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               </div>
               <button onClick={() => setMobileOpen(false)}><X className="h-5 w-5 text-ink-500" /></button>
             </div>
-            <nav className="flex-1 space-y-1 px-3 py-4">
+            <nav className="flex-1 space-y-1 px-3 py-4 overflow-y-auto">
               {nav.map((item) => (
                 <Link key={item.to} to={item.to} onClick={() => setMobileOpen(false)} className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium ${isActive(item.to) ? 'bg-plum-50 text-plum-700' : 'text-ink-600 hover:bg-ink-100'}`}>
                   <item.icon className="h-5 w-5" />
