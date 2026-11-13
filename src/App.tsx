@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from '@/context/AuthContext';
 import { AdminProvider } from '@/context/AdminContext';
@@ -22,7 +21,6 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignUpPage />} />
-
             <Route
               path="/dashboard"
               element={
@@ -31,7 +29,6 @@ function App() {
                 </ProtectedRoute>
               }
             />
-
             <Route
               path="/data-ingestion"
               element={
@@ -40,7 +37,6 @@ function App() {
                 </ProtectedRoute>
               }
             />
-
             <Route
               path="/evaluation"
               element={
@@ -49,7 +45,6 @@ function App() {
                 </ProtectedRoute>
               }
             />
-
             <Route
               path="/analytics"
               element={
@@ -58,7 +53,6 @@ function App() {
                 </ProtectedRoute>
               }
             />
-
             <Route
               path="/learning-path"
               element={
@@ -67,7 +61,6 @@ function App() {
                 </ProtectedRoute>
               }
             />
-
             <Route
               path="/admin"
               element={
@@ -76,7 +69,6 @@ function App() {
                 </ProtectedRoute>
               }
             />
-
             <Route
               path="/admin/:tab"
               element={
@@ -85,7 +77,6 @@ function App() {
                 </ProtectedRoute>
               }
             />
-
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>
